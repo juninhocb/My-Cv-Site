@@ -5,12 +5,31 @@ import brasil from './imgs/brasil.png';
 
 const WelcomeModal = ({ onClose }) => {
   const [language, setLanguage] = useState(null);
+  const [message, setMessage] = useState('');
+  const [showBrasil, setShowBrasil] = useState(false);
+  const [showUsa, setShowUsa] = useState(false);
   const [messageIndex, setMessageIndex] = useState(0);
 
+  const fullMessage = 'Hello, please, select a language';
   const messages = {
     en: ['Front-end: Me', 'Infrastructure: Me', 'Design: Me'],
     pt: ['Front-end: Eu', 'Infraestrutura: Eu', 'Design: Eu'],
   };
+
+  useEffect(() => {
+    let index = 0;
+    const typingInterval = setInterval(() => {
+      setMessage(fullMessage.slice(0, index));
+      index++;
+      if (index > fullMessage.length) {
+        clearInterval(typingInterval);
+        setTimeout(() => setShowBrasil(true), 500);
+        setTimeout(() => setShowUsa(true), 1000);
+      }
+    }, 100);
+
+    return () => clearInterval(typingInterval);
+  }, []);
 
   useEffect(() => {
     let interval;
@@ -21,7 +40,7 @@ const WelcomeModal = ({ onClose }) => {
 
       if (messageIndex === messages[language].length) {
         clearInterval(interval);
-        setTimeout(() => onClose(language), 1500); // Delay de 1,5 segundos antes de fechar o modal
+        setTimeout(() => onClose(language), 1500);
       }
 
       return () => clearInterval(interval);
@@ -37,20 +56,24 @@ const WelcomeModal = ({ onClose }) => {
       <div className="welcome-modal-content">
         {!language ? (
           <>
-            <h1>Please, select a language</h1>
+            <h1>{message}</h1>
             <div className="language-selection">
-              <img
-                src={brasil}
-                alt="Português"
-                className="flag"
-                onClick={() => handleLanguageSelect('pt')}
-              />
-              <img
-                src={usa}
-                alt="English"
-                className="flag"
-                onClick={() => handleLanguageSelect('en')}
-              />
+              {showBrasil && (
+                <img
+                  src={brasil}
+                  alt="Português"
+                  className="flag show"
+                  onClick={() => handleLanguageSelect('pt')}
+                />
+              )}
+              {showUsa && (
+                <img
+                  src={usa}
+                  alt="English"
+                  className="flag show"
+                  onClick={() => handleLanguageSelect('en')}
+                />
+              )}
             </div>
           </>
         ) : (

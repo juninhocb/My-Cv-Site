@@ -11,6 +11,8 @@
   flex: 1;
   padding-top: 80px;
   padding-bottom: 80px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .section {
@@ -23,20 +25,18 @@
 .about-section {
   display: flex;
   align-items: center;
+  flex-direction: row; /* Para exibir lado a lado em telas maiores */
 }
 
 .about-section .text-center {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px; /* Ajuste para espaço entre imagem e texto */
 }
 
 .about-text {
   margin: 5px 0;
-}
-
-.about-section img {
-  margin-bottom: 20px; /* Ajuste o valor conforme necessário */
 }
 
 .social-icons a {
@@ -91,4 +91,29 @@
 .navbar-brand-custom,
 .nav-link-custom {
   white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  .navbar-brand-custom,
+  .nav-link-custom {
+    font-size: 0.9rem;
+  }
+
+  .custom-button {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+
+  .about-section {
+    flex-direction: column; /* Exibir em coluna em dispositivos móveis */
+  }
+
+  .about-section img {
+    margin-bottom: 20px;
+  }
+
+  .main-container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }

@@ -33,29 +33,32 @@ function App() {
       {showWelcomeModal && <WelcomeModal onClose={handleCloseWelcomeModal} />}
       {!showWelcomeModal && (
         <div className="App" style={{ backgroundImage: `url(${backgroundImage})` }}>
-          <Navbar bg="dark" variant="dark" fixed="top">
+          <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
             <Container>
               <Navbar.Brand href="#home">
                 {language === 'en' ? 'My Resume' : 'Meu Currículo'}
               </Navbar.Brand>
-              <Nav className="me-auto">
-                <Nav.Link href="#about">{language === 'en' ? 'About Me' : 'Sobre Mim'}</Nav.Link>
-                <Nav.Link href="#experience">
-                  {language === 'en' ? 'Professional Experience' : 'Experiência Profissional'}
-                </Nav.Link>
-                <Nav.Link href="#technologies">
-                  {language === 'en' ? 'Technologies' : 'Tecnologias'}
-                </Nav.Link>
-                <Nav.Link href="#contact">{language === 'en' ? 'Contact' : 'Contato'}</Nav.Link>
-              </Nav>
-              <GeneratePdfButton language={language} />
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me-auto">
+                  <Nav.Link href="#about">{language === 'en' ? 'About Me' : 'Sobre Mim'}</Nav.Link>
+                  <Nav.Link href="#experience">
+                    {language === 'en' ? 'Professional Experience' : 'Experiência Profissional'}
+                  </Nav.Link>
+                  <Nav.Link href="#technologies">
+                    {language === 'en' ? 'Technologies' : 'Tecnologias'}
+                  </Nav.Link>
+                  <Nav.Link href="#contact">{language === 'en' ? 'Contact' : 'Contato'}</Nav.Link>
+                </Nav>
+                <GeneratePdfButton language={language} />
+              </Navbar.Collapse>
             </Container>
           </Navbar>
 
           <Container className="main-container">
             <Row id="about" className="about-section">
               <Col xs={12} md={3} className="text-center">
-                <Image src={me} roundedCircle fluid width="175" />
+                <Image src={me} roundedCircle fluid width="150" />
               </Col>
               <Col xs={12} md={9}>
                 <h1>Carlos Eduardo dos Santos Junior</h1>

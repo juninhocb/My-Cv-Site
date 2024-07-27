@@ -1,0 +1,44 @@
+.welcome-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #3a3a3a, #f5f5f5); /* Usando o mesmo degradê das sections */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .welcome-modal-content {
+    background: gray;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 40%;
+    height: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .flag {
+    width: 200px;
+    height: 200px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .flag:hover {
+    transform: scale(1.1);
+  }
+  
+  .enjoy-it {
+    font-size: 1.2rem;
+    color: green;
+  }

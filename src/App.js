@@ -58,10 +58,11 @@ function App() {
           <Container className="main-container">
             <Row id="about" className="about-section">
               <Col xs={12} md={3} className="text-center">
-                <Image src={me} roundedCircle fluid width="150" />
+                <Image src={me} roundedCircle fluid width="150" className="profile-image" />
               </Col>
-              <Col xs={12} md={9}>
-                <h1>Carlos Eduardo dos Santos Junior</h1>
+              <Col xs={12} md={9} className="text-content">
+                <h2 className="section-title">{language === 'en' ? 'Who Am I?' : 'Quem Sou Eu?'}</h2>
+                <h3 className="name-title">Carlos Eduardo dos Santos Junior</h3>
                 <p className="about-text">👤 {language === 'en' ? 'Age: 27' : 'Idade: 27 Anos'}</p>
                 <p className="about-text">
                   👷{' '}
@@ -86,6 +87,9 @@ function App() {
                 </p>
               </Col>
             </Row>
+
+
+
 
             <Row id="resume" className="section">
               <Col>

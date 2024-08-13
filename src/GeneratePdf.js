@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet, Image } from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, Image, Link } from '@react-pdf/renderer';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import me from './imgs/me.png';
 
@@ -48,6 +48,14 @@ const styles = StyleSheet.create({
     margin: 5,
     fontSize: 12,
   },
+  siteLink: {
+    fontSize: 12,
+    marginTop: 10,
+  },
+  link: {
+    color: 'blue',
+    textDecoration: 'underline',
+  },
 });
 
 // Componente do documento PDF
@@ -74,8 +82,8 @@ const MyDocument = ({ language }) => (
           <Text style={styles.text}>
             🗽{' '}
             {language === 'en'
-              ? 'Proficient in English - 60/75 Toefl'
-              : 'Inglês proficiente - 60/75 Toefl'}
+              ? 'Proficient in English'
+              : 'Inglês proficiente'}
           </Text>
         </View>
       </View>
@@ -198,6 +206,14 @@ const MyDocument = ({ language }) => (
           {language === 'en'
             ? 'Contact me through my social networks or send an email to the address above.'
             : 'Entre em contato comigo através das minhas redes sociais ou envie um email para o endereço acima.'}
+        </Text>
+        <Text style={styles.siteLink}>
+          {language === 'en'
+            ? 'Curriculum generated through my personal website: '
+            : 'Currículo gerado através do meu site pessoal: '}
+          <Link src="https://curriculo-sable-six.vercel.app/" style={styles.link}>
+            https://curriculo-sable-six.vercel.app/
+          </Link>
         </Text>
       </View>
     </Page>

@@ -79,11 +79,8 @@ function App() {
                 <p className="about-text">
                   🗽{' '}
                   {language === 'en'
-                    ? 'Proficient in English - 60/75 Toefl'
-                    : 'Inglês proficiente - 60/75 Toefl'}{' '}
-                  <a href="#" className="verify-link">
-                    {language === 'en' ? 'check here' : 'verifique aqui'}
-                  </a>
+                    ? 'Proficient in English'
+                    : 'Inglês proficiente'}{' '}
                 </p>
               </Col>
             </Row>

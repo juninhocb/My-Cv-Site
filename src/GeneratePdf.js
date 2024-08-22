@@ -1,60 +1,123 @@
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet, Image, Link } from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, Image, Link, Font } from '@react-pdf/renderer';
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import me from './imgs/me.png';
+import me from './imgs/me.png'; // Certifique-se de que a imagem está no caminho correto
+import fontBold from './fonts/Poppins-Bold.ttf';
+import fontMedium from './fonts/Poppins-Medium.ttf';
+
+Font.register({
+  family: 'Poppins',
+  src: fontBold,
+  fontWeight: 'bold'
+});
+
+Font.register({
+  family: 'Poppins',
+  src: fontMedium,
+  fontWeight: 'normal' // Assuming Medium corresponds to a normal weight
+});
 
 // Estilos para o PDF
 const styles = StyleSheet.create({
   page: {
-    padding: 30,
-  },
-  section: {
-    marginBottom: 20,
-  },
-  headerSection: {
     flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 20,
+    padding: 0, // Remove margem interna
   },
-  image: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    marginRight: 20,
+  leftColumn: {
+    width: '65%',
+    padding: 20, // Adiciona padding para a coluna esquerda
+  },
+  rightColumn: {
+    width: '35%',
+    padding: 10, // Remove padding para a coluna direita
+    backgroundColor: '#013E44',
+    color: '#ffffff',
   },
   header: {
-    fontSize: 24,
-    marginBottom: 10,
+    fontFamily: 'Poppins',
+    fontWeight: 'bold',
+    fontSize: 20, // Reduz o tamanho da fonte do nome
+    marginBottom: 0,
+  },
+  personalInfo: {
+    fontSize: 8,
+    marginBottom: 5,
+  },
+  subHeader: {
+    fontSize: 14,
+    color: '#13A89E',
+    marginBottom: 0,
   },
   text: {
     marginBottom: 10,
     fontSize: 12,
   },
-  table: {
-    display: 'table',
-    width: 'auto',
-    marginTop: 20,
+  periodText: {
+    fontSize: 8,
+    color: '#000000',
+    marginBottom: 5
   },
-  tableRow: {
-    flexDirection: 'row',
+  section: {
+    marginBottom: 0,
   },
-  tableCol: {
-    width: '50%',
-    borderStyle: 'solid',
-    borderWidth: 1,
-    borderColor: '#bfbfbf',
+  image: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginBottom: 20,
+    alignSelf: 'center', // Centraliza a imagem verticalmente
   },
-  tableCell: {
-    margin: 5,
+  contactSection: {
+    marginBottom: 10,
+  },
+  contactText: {
+    fontFamily: 'Poppins',
+    fontSize: 10,
+    marginBottom: 5,
+  },
+  achievementSection: {
+    marginBottom: 10,
+  },
+  achievementText: {
+    fontSize: 10, // Tamanho menor para o texto de achievements
+    marginBottom: 10, // Aumentado para adicionar mais espaço
+  },
+  boldText: {
+    fontSize: 15,
+    marginBottom: 7,
+    fontWeight: 'bold',
+    color: '#ffffff', // Deixa o texto em branco
+  },
+  divider: {
+    borderBottom: '1px solid #ffffff',
+    marginTop: 0,
+    marginBottom: 10,
+  },
+  skillSection: {
+    marginTop: 0,
+  },
+  skillText: {
     fontSize: 12,
-  },
-  siteLink: {
-    fontSize: 12,
-    marginTop: 10,
+    marginBottom: 5,
   },
   link: {
     color: 'blue',
     textDecoration: 'underline',
+  },
+  siteLink: {
+    fontSize: 10,
+    marginTop: 5,
+    textAlign: 'center',
+  },
+  footerLink: {
+    fontSize: 10,
+    marginTop: 10,
+    textAlign: 'center',
+  },
+  summaryHeader: {
+    fontSize: 16,
+    marginBottom: 10,
+    fontWeight: 'bold',
   },
 });
 
@@ -62,164 +125,141 @@ const styles = StyleSheet.create({
 const MyDocument = ({ language }) => (
   <Document>
     <Page size="A4" style={styles.page}>
-      <View style={styles.headerSection}>
+      {/* Coluna Esquerda */}
+      <View style={styles.leftColumn}>
+        <Text style={styles.header}>Carlos Eduardo dos Santos Junior</Text>
+        <Text style={styles.subHeader}>{language === 'en' ? 'Software Engineer' : 'Engenheiro de Software'}</Text>
+        <Text style={styles.personalInfo}>
+          {language === 'en'
+            ? 'Age: 27 | Location: São Paulo, Brazil | Graduation: Mechatronic Engineer | English: Proficient'
+            : 'Idade: 27 | Localização: São Paulo, Brasil | Graduação: Engenheiro Mecatrônico | Inglês: Proficiente'}
+        </Text>
+        <Text style={styles.header}>{language === 'en' ? 'Summary' : 'Resumo'}</Text>
+        <Text style={styles.text}>
+          {language === 'en'
+            ? "Passionate software engineer with 5+ Years of experience developing in Java, I focus on backend systems, being proficient in developing scalable, robust, and testable applications. "
+            : 'Engenheiro de software apaixonado, com mais de 5 anos de experiência em desenvolvimento com Java, focado em sistemas backend, sendo proficiente no desenvolvimento de aplicações escaláveis, robustas e testáveis. '}
+        </Text>
+        <View style={styles.section}>
+          <View style={styles.section}>
+            <Text style={styles.header}>
+              {language === 'en' ? 'Professional Experience' : 'Experiência Profissional'}
+            </Text>
+
+            <Text style={styles.subHeader}>
+              Circuitec - {language === 'en' ? 'Software Developer II' : 'Engenheiro de Software II'}
+            </Text>
+            <Text style={styles.periodText}>
+              2023 - {language === 'en' ? 'Present' : 'Presente'}
+            </Text>
+            <Text style={styles.text}>
+              {language === 'en'
+                ? "In my subsequent role, I took on responsibilities as a product lead, where I guided new developers on projects while continuing to develop and maintain various applications. My focus was on backend development using Java and Spring Boot, along with frontend development using React JS. I was responsible for delegating tasks, leading code reviews, and ensuring the maintenance of existing systems, all while continuing to contribute significantly to backend code development."
+                : "Em meu papel subsequente, assumi responsabilidades como líder de produto, onde guiei novos desenvolvedores em projetos enquanto continuei a desenvolver e manter várias aplicações. Meu foco foi no desenvolvimento de backend utilizando Java e Spring Boot, além do desenvolvimento frontend com React JS. Fui responsável por delegar tarefas, conduzir revisões de código e garantir a manutenção dos sistemas existentes, tudo isso enquanto continuei contribuindo significativamente para o desenvolvimento de código backend."}
+            </Text>
+
+            <Text style={styles.subHeader}>
+              Circuitec - {language === 'en' ? 'Software Developer I' : 'Engenheiro de Software I'}
+            </Text>
+            <Text style={styles.periodText}>
+              2022 - 2023
+            </Text>
+            <Text style={styles.text}>
+              {language === 'en'
+                ? "During my first year at the enterprise, I developed a variety of applications, primarily using Java with Spring Boot and Java EE. I also created a complete application for both Android and iOS using Flutter. Additionally, I utilized Python for automation tasks and developed an Alexa Skill. I addressed security challenges in running applications by implementing OAuth protocols and worked on web applications using React JS. My experience also includes deploying numerous service applications using Spring Boot on AWS, Google Cloud Platform, and VMWare, leveraging Docker and WinSW for efficient deployment."
+                : "Durante meu primeiro ano na empresa, desenvolvi uma variedade de aplicações, principalmente usando Java com Spring Boot e Java EE. Também criei uma aplicação completa para Android e iOS usando Flutter. Além disso, utilizei Python para tarefas de automação e desenvolvi uma Alexa Skill. Enfrentei desafios de segurança em aplicações em execução, implementando protocolos OAuth e trabalhei em aplicações web utilizando React JS. Minha experiência também inclui o deployment de vários serviços usando Spring Boot na AWS, Google Cloud Platform e VMWare, aproveitando Docker e WinSW para um deployment eficiente."}
+            </Text>
+
+            <Text style={styles.subHeader}>
+              {language === 'en' ? 'University Projects' : 'Projetos Universitários'}
+            </Text>
+            <Text style={styles.periodText}>
+              2019 - 2022
+            </Text>
+            <Text style={styles.text}>
+              {language === 'en'
+                ? "As part of my Mechatronic Engineering degree, I had to choose between three specialization areas, and I opted for the Computer Science path. This choice required me to complete three projects during the final semesters of my graduation. The objective was to scientifically justify my decisions and present the work. I developed web applications utilizing JavaScript, HTML, and CSS, backend applications using Flask and Spring Boot, firmware using C and C++, embedded systems with Raspberry Pi, and worked with different databases like PostgreSQL and SQLite. I also deployed applications in the Heroku environment and explored computer vision with Python."
+                : "Como parte do meu curso de Engenharia Mecatrônica, tive que escolher entre três áreas de especialização e optei pelo caminho da Ciência da Computação. Essa escolha exigiu que eu completasse três projetos durante os semestres finais da minha graduação. O objetivo era justificar cientificamente minhas decisões e apresentar o trabalho. Desenvolvi aplicações web utilizando JavaScript, HTML e CSS, aplicações backend usando Flask e Spring Boot, firmware usando C e C++, sistemas embarcados com Raspberry Pi, e trabalhei com diferentes bancos de dados como PostgreSQL e SQLite. Também fiz o deploy de aplicações no ambiente Heroku e explorei visão computacional com Python."}
+            </Text>
+          </View>
+
+        </View>
+        <View style={styles.section}>
+          <Text style={styles.header}>{language === 'en' ? 'Education' : 'Educação'}</Text>
+          <Text style={styles.text}>
+            {language === 'en'
+              ? 'Mechatronics Engineer, at Universidade Federal de Santa Catarina (Highest Ranking in the country)'
+              : 'Engenheiro Mecatrônico, pela Universidade Federal de Santa Catarina (Máximo conceito do país)'}
+          </Text>
+          <Text style={styles.footerLink}>
+            {language === 'en'
+              ? 'Curriculum generated through my personal website: '
+              : 'Currículo gerado através do meu site pessoal: '}
+            <Link src="https://curriculo-sable-six.vercel.app/" style={styles.link}>
+              https://curriculo-sable-six.vercel.app/
+            </Link>
+          </Text>
+        </View>
+      </View>
+
+      {/* Coluna Direita */}
+      <View style={styles.rightColumn}>
         <Image src={me} style={styles.image} />
-        <View>
-          <Text style={styles.header}>Carlos Eduardo dos Santos Junior</Text>
-          <Text style={styles.text}>👤 {language === 'en' ? 'Age: 27' : 'Idade: 27 Anos'}</Text>
-          <Text style={styles.text}>
-            👷{' '}
+        <View style={styles.contactSection}>
+          <Text style={styles.header}>{language === 'en' ? 'Contact' : 'Contato'}</Text>
+          <View style={styles.divider} />
+          <Text style={styles.contactText}>• Github: <Link src="https://github.com/juninhocb" style={styles.link}>juninhocb</Link> </Text>
+          <Text style={styles.contactText}>• LinkedIn: <Link src="https://www.linkedin.com/in/carlos-eduardo-junior-142326120/" style={styles.link}>Carlos</Link> </Text>
+          <Text style={styles.contactText}>• Email: juninhocb@hotmail.com</Text>
+        </View>
+        <View style={styles.achievementSection}>
+          <Text style={styles.header}>{language === 'en' ? 'Achievements' : 'Conquistas'}</Text>
+          <View style={styles.divider} />
+          <Text style={styles.boldText}>
             {language === 'en'
-              ? 'Mechatronics Engineer with specialization in computational systems'
-              : 'Engenheiro Mecatrônico com especialidade em sistemas computacionais'}
+              ? 'Spring Certified Professional'
+              : 'Spring Certified Professional'}
           </Text>
-          <Text style={styles.text}>
-            🎓{' '}
+          <Text style={styles.achievementText}>
             {language === 'en'
-              ? 'Graduated from the Federal University of Santa Catarina'
-              : 'Graduado pela Universidade Federal de Santa Catarina'}
+              ? 'Certified by VMware after passing tests in Spring Core, Spring AOP, Spring Security, and more.'
+              : 'Certificado pela VMware após passar em testes de conceitos como Spring Core, Spring AOP, Spring Security e muito mais.'}
           </Text>
-          <Text style={styles.text}>
-            🗽{' '}
+          <Text style={styles.boldText}>
             {language === 'en'
-              ? 'Proficient in English'
-              : 'Inglês proficiente'}
+              ? 'Java EE Legacy Server Migration'
+              : 'Migração de Servidor Legado Java EE'}
+          </Text>
+          <Text style={styles.achievementText}>
+            {language === 'en'
+              ? 'Migrated a legacy Java EE server with significant improvements in memory usage, processing, and modern development adaptations using Spring Framework.'
+              : 'Migrei um servidor legado Java EE com melhorias significativas no uso de memória, processamento e adaptações para métodos modernos de desenvolvimento utilizando o Spring Framework.'}
+          </Text>
+          <Text style={styles.boldText}>
+            {language === 'en'
+              ? 'Migration of a deprecated Google IoT service'
+              : 'Migração de serviço IoT do Google descontinuado'}
+          </Text>
+          <Text style={styles.achievementText}>
+            {language === 'en'
+              ? 'Created a microservices architecture with messaging, circuit breaker, and saga patterns to replace a deprecated Google IoT service in 08/2023, using Spring Cloud.'
+              : 'Criei uma arquitetura de microsserviços com mensageria, circuit breaker, e sagas pattern para substituir um serviço IoT do Google descontinuado em 08/2023, utilizando Spring Cloud.'}
           </Text>
         </View>
-      </View>
-      <View style={styles.section}>
-        <Text style={styles.header}>{language === 'en' ? 'About Me' : 'Sobre mim'}</Text>
-        <Text style={styles.text}>
-          {language === 'en'
-            ? "Hello, I'm passionate about soccer and a fervent Palmeiras fan. I love to travel and enjoy life to the fullest, exploring new places and experiences. I regularly go to the gym and value a healthy lifestyle, opting for natural training without the use of steroids. Additionally, I enjoy horseback riding and playing tennis, activities that allow me to be in touch with nature and stay active. I'm not a fan of video games and prefer to spend my free time away from screens (except when I want to program), not watching series and movies."
-            : 'Olá, sou um apaixonado por futebol e um torcedor fervoroso do Palmeiras. Adoro viajar e aproveitar a vida ao máximo, explorando novos lugares e experiências. Frequento a academia regularmente e valorizo um estilo de vida saudável, optando por um treino natural sem o uso de esteroides. Além disso, gosto de andar a cavalo e jogar tênis, atividades que me permitem estar em contato com a natureza e manter-me ativo. Não sou fã de jogos eletrônicos e prefiro passar meu tempo livre longe das telas (Exceto quando quero programar), não assistindo séries e filmes.'}
-        </Text>
-        <Text style={styles.text}>
-          {language === 'en'
-            ? 'When it comes to personal preferences, I have a strong inclination to learn hard skills. My journey in programming started with the C language, as I always wanted to understand the root of everything. I have a passion for mathematics and physics, and exact sciences in general. I am always up to date with the latest trends in artificial intelligence and seek to use the most modern tools available.'
-            : 'Quando se trata de preferências pessoais, tenho uma forte inclinação para aprender hard skills. Minha jornada na programação começou com a linguagem C, pois sempre tive o desejo de entender a raiz de tudo. Tenho uma paixão por matemática e física, e as ciências exatas em geral. Estou sempre atualizado com as últimas tendências em inteligência artificial e busco utilizar as ferramentas mais modernas disponíveis.'}
-        </Text>
-        <Text style={styles.text}>
-          {language === 'en'
-            ? 'I am also a great music enthusiast. I can play the guitar, drums, and acoustic guitar, and my favorite and unique musical genres are Rock and American Country. Music is an important part of my life, providing a perfect balance between work and leisure.'
-            : 'Sou também um grande apreciador de música. Sei tocar guitarra, bateria e violão, e meus gêneros musicais favoritos e únicos são Rock e Country Americano. A música é uma parte importante da minha vida, proporcionando um equilíbrio perfeito entre trabalho e lazer.'}
-        </Text>
-        <Text style={styles.text}>
-          {language === 'en'
-            ? 'My behavioral pattern is marked by tranquility and dedication. I am a calm, hardworking, and disciplined person who knows exactly what I want and work hard to achieve my goals. I value consistency and perseverance in everything I do, always keeping focus on my goals.'
-            : 'Meu padrão comportamental é marcado pela tranquilidade e dedicação. Sou uma pessoa tranquila, esforçada e disciplinada, que sabe exatamente o que quer e trabalha arduamente para alcançar seus objetivos. Valorizo a consistência e a perseverança em tudo o que faço, sempre mantendo o foco em minhas metas.'}
-        </Text>
-      </View>
-      <View style={styles.section}>
-        <Text style={styles.header}>
-          {language === 'en' ? 'Professional Experience' : 'Experiência Profissional'}
-        </Text>
-        <Text style={styles.text}>
-          {language === 'en'
-            ? 'With over 5 years of experience in Java, I have worked in various areas, from web development to infrastructure. My specialty is backend development using Java and Spring Framework. I have experience in several professional and academic projects.'
-            : 'Com mais de 5 anos de experiência em Java, trabalhei em diversas áreas, desde desenvolvimento web até infraestrutura. Minha especialidade é no desenvolvimento backend utilizando Java e Spring Framework. Tenho experiência em diversos projetos profissionais e acadêmicos.'}
-        </Text>
-        <Text style={styles.text}>
-          {language === 'en'
-            ? 'I currently work at Circuitec Indústria de Equipamentos Eletrônicos. Circuitec is my first and only company in the technology field, and I have been with them since March 2022, and I am very happy with it.'
-            : 'Atualmente trabalho na Circuitec Indústria de Equipamentos Eletrônicos. A Circuitec é a minha primeira e única empresa no ramo da tecnologia e estou nela desde Março de 2022, e estou muito contente nela.'}
-        </Text>
-        <Text style={styles.text}>
-          {language === 'en'
-            ? 'Among my main services provided so far, I highlight the renewal of a legacy desktop system to a new one, the replacement of old Java EE applications with new ones in Spring, creation of APIs for facial time clock and JNI integration with the company\'s equipment and services.'
-            : 'Dentre meus principais serviços prestados até aqui, eu destaco a renovação de um sistema legado desktop para um novo, a substituição de aplicação antiga Java EE por novas em Spring, criação de API\'s para relógio de ponto facial e integração JNI com o equipamento e serviços da empresa.'}
-        </Text>
-      </View>
-      <View style={styles.section}>
-        <Text style={styles.header}>{language === 'en' ? 'Technologies' : 'Tecnologias'}</Text>
-        <View style={styles.table}>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>Database</Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>MySQL, PostgreSQL</Text>
-            </View>
-          </View>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>Frameworks</Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>Spring Framework, Java Swing, React JS</Text>
-            </View>
-          </View>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>Web</Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>MVC, Web Flux, RPC, Web Sockets</Text>
-            </View>
-          </View>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>Messaging</Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>Kafka, RabbitMQ, ActiveMQ, JMS</Text>
-            </View>
-          </View>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>Monitoring</Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>Actuator, ELK Stack, Prometheus</Text>
-            </View>
-          </View>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>Security</Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>OAuth, JWT</Text>
-            </View>
-          </View>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>Infrastructure</Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>Docker, Linux, Windows Server, GCP, AWS</Text>
-            </View>
-          </View>
-          <View style={styles.tableRow}>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>IDE</Text>
-            </View>
-            <View style={styles.tableCol}>
-              <Text style={styles.tableCell}>IntelliJ IDEA, NetBeans, VSCode</Text>
-            </View>
-          </View>
+        <View style={styles.skillSection}>
+          <Text style={styles.header}>{language === 'en' ? 'Skills' : 'Habilidades'}</Text>
+          <View style={styles.divider} />
+          <Text style={styles.skillText}>Java - Spring - SQL - </Text>
+          <Text style={styles.skillText}>{language === 'en' ? 'Messaging System - ' : 'Sistemas de Mensageria - '}</Text>
+          <Text style={styles.skillText}>{language === 'en' ? 'Microservices - ' : 'Microsserviços - '}</Text>
+          <Text style={styles.skillText}>Docker - AWS - Linux </Text>
         </View>
-      </View>
-      <View style={styles.section}>
-        <Text style={styles.header}>{language === 'en' ? 'Contact' : 'Contato'}</Text>
-        <Text style={styles.text}>juninhocb@hotmail.com</Text>
-        <Text style={styles.text}>
-          {language === 'en'
-            ? 'Contact me through my social networks or send an email to the address above.'
-            : 'Entre em contato comigo através das minhas redes sociais ou envie um email para o endereço acima.'}
-        </Text>
-        <Text style={styles.siteLink}>
-          {language === 'en'
-            ? 'Curriculum generated through my personal website: '
-            : 'Currículo gerado através do meu site pessoal: '}
-          <Link src="https://curriculo-sable-six.vercel.app/" style={styles.link}>
-            https://curriculo-sable-six.vercel.app/
-          </Link>
-        </Text>
       </View>
     </Page>
   </Document>
 );
 
+// Componente para download do PDF
 const GeneratePdfButton = ({ language }) => (
   <PDFDownloadLink
     document={<MyDocument language={language} />}

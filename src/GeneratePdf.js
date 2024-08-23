@@ -33,10 +33,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#013E44',
     color: '#ffffff',
   },
-  header: {
+  nameHeader: {
     fontFamily: 'Poppins',
     fontWeight: 'bold',
     fontSize: 20, // Reduz o tamanho da fonte do nome
+    marginBottom: 0,
+  },
+  header: {
+    fontFamily: 'Poppins',
+    fontWeight: 'bold',
+    fontSize: 16, // Reduz o tamanho da fonte do nome
     marginBottom: 0,
   },
   personalInfo: {
@@ -111,7 +117,7 @@ const styles = StyleSheet.create({
   },
   footerLink: {
     fontSize: 10,
-    marginTop: 10,
+    marginTop: 30,
     textAlign: 'center',
   },
   summaryHeader: {
@@ -127,12 +133,12 @@ const MyDocument = ({ language }) => (
     <Page size="A4" style={styles.page}>
       {/* Coluna Esquerda */}
       <View style={styles.leftColumn}>
-        <Text style={styles.header}>Carlos Eduardo dos Santos Junior</Text>
+        <Text style={styles.nameHeader}>Carlos Eduardo dos Santos Junior</Text>
         <Text style={styles.subHeader}>{language === 'en' ? 'Software Engineer' : 'Engenheiro de Software'}</Text>
         <Text style={styles.personalInfo}>
           {language === 'en'
-            ? 'Age: 27 | Location: São Paulo, Brazil | Graduation: Mechatronic Engineer | English: Proficient'
-            : 'Idade: 27 | Localização: São Paulo, Brasil | Graduação: Engenheiro Mecatrônico | Inglês: Proficiente'}
+            ? 'Location: São Paulo, Brazil | Graduation: Mechatronic Engineer | English: Proficient'
+            : 'Localização: São Paulo, Brasil | Graduação: Engenheiro Mecatrônico | Inglês: Proficiente'}
         </Text>
         <Text style={styles.header}>{language === 'en' ? 'Summary' : 'Resumo'}</Text>
         <Text style={styles.text}>

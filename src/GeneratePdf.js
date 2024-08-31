@@ -143,8 +143,8 @@ const MyDocument = ({ language }) => (
         <Text style={styles.header}>{language === 'en' ? 'Summary' : 'Resumo'}</Text>
         <Text style={styles.text}>
           {language === 'en'
-            ? "Passionate software engineer with 5+ Years of experience developing in Java, I focus on backend systems, being proficient in developing scalable, robust, and testable applications. "
-            : 'Engenheiro de software apaixonado, com mais de 5 anos de experiência em desenvolvimento com Java, focado em sistemas backend, sendo proficiente no desenvolvimento de aplicações escaláveis, robustas e testáveis. '}
+            ? "Passionate software engineer with 5+ Years of experience developing in Java, I focus on backend systems, being proficient in developing scalable, robust, and testable applications."
+            : 'Engenheiro de software apaixonado, com mais de 5 anos de experiência em desenvolvimento com Java, focado em sistemas backend, sendo proficiente no desenvolvimento de aplicações escaláveis, robustas e testáveis.'}
         </Text>
         <View style={styles.section}>
           <View style={styles.section}>
@@ -156,36 +156,48 @@ const MyDocument = ({ language }) => (
               Circuitec - {language === 'en' ? 'Software Developer II' : 'Engenheiro de Software II'}
             </Text>
             <Text style={styles.periodText}>
-              2023 - {language === 'en' ? 'Present' : 'Presente'}
+              2023 (may) - {language === 'en' ? 'Present' : 'Presente'}
             </Text>
             <Text style={styles.text}>
               {language === 'en'
-                ? "In my subsequent role, I took on responsibilities as a product lead, where I guided new developers on projects while continuing to develop and maintain various applications. My focus was on backend development using Java and Spring Boot, along with frontend development using React JS. I was responsible for delegating tasks, leading code reviews, and ensuring the maintenance of existing systems, all while continuing to contribute significantly to backend code development."
-                : "Em meu papel subsequente, assumi responsabilidades como líder de produto, onde guiei novos desenvolvedores em projetos enquanto continuei a desenvolver e manter várias aplicações. Meu foco foi no desenvolvimento de backend utilizando Java e Spring Boot, além do desenvolvimento frontend com React JS. Fui responsável por delegar tarefas, conduzir revisões de código e garantir a manutenção dos sistemas existentes, tudo isso enquanto continuei contribuindo significativamente para o desenvolvimento de código backend."}
+                ? "In my subsequent role, I took on responsibilities to guide new developers on projects while continuing to develop and maintain various applications. My focus was on backend development using Java with Spring Boot, along with frontend development using React JS."
+                : "No meu papel subsequente, assumi responsabilidades de guiar novos desenvolvedores em projetos, enquanto continuei a desenvolver e manter diversas aplicações. Meu foco foi no desenvolvimento backend utilizando Java com Spring Boot, além do desenvolvimento frontend usando React JS."}
             </Text>
 
             <Text style={styles.subHeader}>
               Circuitec - {language === 'en' ? 'Software Developer I' : 'Engenheiro de Software I'}
             </Text>
             <Text style={styles.periodText}>
-              2022 - 2023
+              2022 (mar) - 2023 (may)
             </Text>
             <Text style={styles.text}>
               {language === 'en'
-                ? "During my first year at the enterprise, I developed a variety of applications, primarily using Java with Spring Boot and Java EE. I also created a complete application for both Android and iOS using Flutter. Additionally, I utilized Python for automation tasks and developed an Alexa Skill. I addressed security challenges in running applications by implementing OAuth protocols and worked on web applications using React JS. My experience also includes deploying numerous service applications using Spring Boot on AWS, Google Cloud Platform, and VMWare, leveraging Docker and WinSW for efficient deployment."
-                : "Durante meu primeiro ano na empresa, desenvolvi uma variedade de aplicações, principalmente usando Java com Spring Boot e Java EE. Também criei uma aplicação completa para Android e iOS usando Flutter. Além disso, utilizei Python para tarefas de automação e desenvolvi uma Alexa Skill. Enfrentei desafios de segurança em aplicações em execução, implementando protocolos OAuth e trabalhei em aplicações web utilizando React JS. Minha experiência também inclui o deployment de vários serviços usando Spring Boot na AWS, Google Cloud Platform e VMWare, aproveitando Docker e WinSW para um deployment eficiente."}
+                ? "During my first year at the enterprise, I developed a variety of applications, primarily using Java with Spring Boot and Java EE. I also utilized Python for automation tasks and developed an Alexa Skill. Additionally, i worked on web applications using React JS. My experience also includes deploying numerous service applications using Spring Boot on AWS, Google Cloud Platform, and VMWare, leveraging Docker and WinSW for efficient deployment."
+                : "Durante meu primeiro ano na empresa, desenvolvi uma variedade de aplicações, principalmente utilizando Java com Spring Boot e Java EE. Também utilizei Python para tarefas de automação e desenvolvi uma Skill para Alexa. Além disso, trabalhei em aplicações web utilizando React JS. Minha experiência também inclui o deployment de diversas aplicações de serviço usando Spring Boot na AWS, Google Cloud Platform e VMWare, utilizando Docker e WinSW para um deployment eficiente."}
+            </Text>
+
+            <Text style={styles.subHeader}>
+              {language === 'en' ? 'Modulato - Automation and Furniture Project' : 'Modulato - Automação e Projeto de Móveis'}
+            </Text>
+            <Text style={styles.periodText}>
+              2020 (mar) - 2022 (feb)
+            </Text>
+            <Text style={styles.text}>
+              {language === 'en'
+                ? "In this position, I was responsible for designing furniture using CAD software, while simultaneously automating various processes with Excel sheets and VBA. Additionally, I developed Python plugins for CAD software to improve the efficiency of furniture projects, supporting the Project Sector."
+                : "Nesta posição, fui responsável por projetar móveis utilizando software CAD, enquanto simultaneamente automatizava diversos processos com planilhas do Excel e VBA. Além disso, desenvolvi plugins em Python para software CAD com o objetivo de melhorar a eficiência dos projetos de móveis, apoiando o setor de projetos."}
             </Text>
 
             <Text style={styles.subHeader}>
               {language === 'en' ? 'University Projects' : 'Projetos Universitários'}
             </Text>
             <Text style={styles.periodText}>
-              2019 - 2022
+              2019 (jun) - 2022 (jun)
             </Text>
             <Text style={styles.text}>
               {language === 'en'
-                ? "As part of my Mechatronic Engineering degree, I had to choose between three specialization areas, and I opted for the Computer Science path. This choice required me to complete three projects during the final semesters of my graduation. The objective was to scientifically justify my decisions and present the work. I developed web applications utilizing JavaScript, HTML, and CSS, backend applications using Flask and Spring Boot, firmware using C and C++, embedded systems with Raspberry Pi, and worked with different databases like PostgreSQL and SQLite. I also deployed applications in the Heroku environment and explored computer vision with Python."
-                : "Como parte do meu curso de Engenharia Mecatrônica, tive que escolher entre três áreas de especialização e optei pelo caminho da Ciência da Computação. Essa escolha exigiu que eu completasse três projetos durante os semestres finais da minha graduação. O objetivo era justificar cientificamente minhas decisões e apresentar o trabalho. Desenvolvi aplicações web utilizando JavaScript, HTML e CSS, aplicações backend usando Flask e Spring Boot, firmware usando C e C++, sistemas embarcados com Raspberry Pi, e trabalhei com diferentes bancos de dados como PostgreSQL e SQLite. Também fiz o deploy de aplicações no ambiente Heroku e explorei visão computacional com Python."}
+                ? "As part of my degree, I opted for the Computer Science path. This choice required me to complete 3 projects during the final semesters of my graduation. The objective was to scientifically justify my decisions and present the work. I developed web applications, backend applications using Flask and Spring Boot, firmware to embedded systems with Raspberry Pi, and worked with different databases like PostgreSQL and SQLite. I also deployed applications in the Heroku environment and explored computer vision with Python."
+                : "Como parte da minha graduação, optei pelo caminho da Ciência da Computação. Essa escolha exigiu que eu completasse 3 projetos durante os últimos semestres da minha graduação. O objetivo era justificar cientificamente minhas decisões e apresentar o trabalho. Desenvolvi aplicações web, aplicações backend utilizando Flask e Spring Boot, firmware para sistemas embarcados com Raspberry Pi, e trabalhei com diferentes bancos de dados como PostgreSQL e SQLite. Também fiz deploy de aplicações no ambiente Heroku e explorei visão computacional com Python."}
             </Text>
           </View>
 
@@ -229,7 +241,7 @@ const MyDocument = ({ language }) => (
           <Text style={styles.achievementText}>
             {language === 'en'
               ? 'Certified by VMware after passing tests in Spring Core, Spring AOP, Spring Security, and more.'
-              : 'Certificado pela VMware após passar em testes de conceitos como Spring Core, Spring AOP, Spring Security e muito mais.'}
+              : 'Certificado pela VMware após passar em testes de Spring Core, Spring AOP, Spring Security e mais.'}
           </Text>
           <Text style={styles.boldText}>
             {language === 'en'
@@ -239,17 +251,17 @@ const MyDocument = ({ language }) => (
           <Text style={styles.achievementText}>
             {language === 'en'
               ? 'Migrated a legacy Java EE server with significant improvements in memory usage, processing, and modern development adaptations using Spring Framework.'
-              : 'Migrei um servidor legado Java EE com melhorias significativas no uso de memória, processamento e adaptações para métodos modernos de desenvolvimento utilizando o Spring Framework.'}
+              : 'Migrei um servidor legado Java EE com melhorias significativas no uso de memória, processamento e adaptações para métodos modernos de desenvolvimento utilizando Spring Framework.'}
           </Text>
           <Text style={styles.boldText}>
             {language === 'en'
               ? 'Migration of a deprecated Google IoT service'
-              : 'Migração de serviço IoT do Google descontinuado'}
+              : 'Migração de um serviço IoT do Google descontinuado'}
           </Text>
           <Text style={styles.achievementText}>
             {language === 'en'
               ? 'Created a microservices architecture with messaging, circuit breaker, and saga patterns to replace a deprecated Google IoT service in 08/2023, using Spring Cloud.'
-              : 'Criei uma arquitetura de microsserviços com mensageria, circuit breaker, e sagas pattern para substituir um serviço IoT do Google descontinuado em 08/2023, utilizando Spring Cloud.'}
+              : 'Criei uma arquitetura de microsserviços com mensageria, circuit breaker, e padrões de saga para substituir um serviço IoT do Google descontinuado em 08/2023, utilizando Spring Cloud.'}
           </Text>
         </View>
         <View style={styles.skillSection}>
